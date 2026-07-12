@@ -1,0 +1,9 @@
+{
+    "name": "keani/module6a-mvcapp",
+    "description": "MVC-based PHP alarm and reminder scheduler",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
