@@ -23,3 +23,7 @@ $controller->show(
     "Radar",
     $today
 );
+
+$alarm = new App\Models\Alarm("Wake up", "07:00", ["Mon", "Wed", "Fri"], true, "Radar");
+// For below: snooze 07:00 -> 07:15
+echo "\n" . $alarm->snooze(15) . "\n";
