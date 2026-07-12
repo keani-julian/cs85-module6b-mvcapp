@@ -39,4 +39,15 @@ class Alarm {
         }
         return "Never (no active days)";
     }
+
+    // AI generated method (Snooze)
+    public function snooze($minutes) {
+    if (!is_numeric($minutes) || $minutes <= 0) {
+        return "Snooze amount must be a positive number.";
+    }
+    list($hour, $minute) = explode(":", $this->time);
+    $total = ((int)$hour * 60 + (int)$minute + (int)$minutes) % 1440;
+    $this->time = sprintf("%02d:%02d", intdiv($total, 60), $total % 60);
+    return "Snoozed to {$this->time}";
+}
 }
