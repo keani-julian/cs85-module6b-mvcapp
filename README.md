@@ -1,5 +1,9 @@
 # cs85-module6b-mvcapp
 
+## GitHub Repo:
+
+https://github.com/keani-julian/cs85-module6b-mvcapp
+
 ## Includes: 
 - App description
 - Setup instructions
@@ -8,8 +12,49 @@
 
 ## App description
 
+This is a command-line **alarm and reminder scheduler** built with the **MVC pattern**
+and **PSR-4 autoloading** via Composer. You can label an alarm with a label, a time, the
+days of the week it should repeat, whether it's enabled, and a sound. The app validates
+that input, then prints a summary of the alarm — including whether it's scheduled for
+the current day and which day it will next go off.
+
+The project is organized into three parts:
+- **Model** (`src/Models/Alarm.php`) — holds the alarm data and the scheduling logic
+  (`isScheduledFor()`, `nextOccurrence()`, and a `snooze()` method).
+- **View** (`views/alarm-view.php`) — formats and prints the alarm summary.
+- **Controller** (`src/Controllers/AlarmController.php`) — validates the input, builds
+  the model, and passes it to the view.
+
+`public/index.php` is the entry point that wires it all together through Composer's
+autoloader.
+
 
 ## Setup instructions
+
+**Requirements:** PHP 8+ and Composer (both included with Laravel Herd).
+
+1. Clone the repository:
+   git clone https://github.com/keani-julian/cs85-module6b-mvcapp.git
+   
+   cd cs85-module6b-mvcapp
+2. Generate the autoloader in your terminal:
+   composer dump-autoload
+3. Then run the app in your terminal:
+   php public/index.php
+
+**Expected output:**
+My personal alarm scheduler
+Alarm: Wake up
+Time: 07:00
+Days: Mon, Wed, Fri
+Status: Enabled
+Today (Wed): Scheduled at 07:00!
+Next alarm: Wed
+
+Snoozed to 07:15
+
+To try your own alarm, edit the values passed to `$controller->show(...)` in
+`public/index.php`.
 
 
 ## AI code review & critique
